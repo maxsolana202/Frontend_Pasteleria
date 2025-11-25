@@ -1,0 +1,793 @@
+/* src/styles/App.css */
+
+/* Variables de colores */
+:root {
+    --primary-color: #e91e63;
+    --secondary-color: #ff4081;
+    --accent-color: #f8bbd0;
+    --dark-color: #880e4f;
+    --light-color: #fce4ec;
+    --text-color: #333;
+    --background-color: #fff;
+    --gray-light: #f8f9fa;
+    
+    /* Variables adicionales del estilo anterior */
+    --primary-color-alt: #d63384;
+    --secondary-color-alt: #6f42c1;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    padding-top: 76px; /* Para compensar la navbar fija */
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+.brand-text, h1, h2, h3, h4, h5 {
+    font-family: 'Pacifico', cursive;
+    color: var(--primary-color-alt);
+}
+
+/* Navbar personalizada */
+.custom-navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-navbar .nav-link {
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.custom-navbar .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.custom-navbar .nav-link.active {
+    color: var(--primary-color);
+}
+
+.custom-navbar .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    background-color: var(--primary-color-alt);
+    color: white;
+    border-radius: 50%;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* Botón de hamburguesa personalizado */
+.BotonHamburguesa {
+    background-color: #540622 !important;
+    border: none !important;
+}
+
+.BotonHamburguesa .container-fluid,
+.BotonHamburguesa .navbar-toggler,
+.BotonHamburguesa .navbar-toggler:focus,
+.BotonHamburguesa .navbar-toggler:active {
+    background-color: #540622 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.BotonHamburguesa .navbar-toggler .navbar-toggler-icon {
+    background-color: #540622 !important;
+    border-radius: 5px;
+    filter: brightness(1.2);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.hero-btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.hero-btn:hover {
+    background-color: var(--dark-color);
+    border-color: var(--dark-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image {
+    max-height: 500px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Secciones generales */
+.section-title {
+    font-family: 'Pacifico', cursive;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Tarjetas de categorías */
+.category-card {
+    padding: 2rem 1rem;
+    border-radius: 15px;
+    transition: all 0.3s;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.category-icon {
+    margin-bottom: 1.5rem;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-icon img {
+    max-height: 100px;
+    transition: transform 0.3s;
+}
+
+.category-card:hover .category-icon img {
+    transform: scale(1.1);
+}
+
+/* Productos */
+.products-section {
+    background-color: var(--gray-light);
+}
+
+.products-header {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                url('https://placehold.co/1200x400/f8d7da/ffffff?text=Pastelería+Mil+Sabores') center/cover no-repeat;
+    padding: 4rem 0;
+}
+
+.product-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    border: 1px solid #e9ecef;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.product-img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.3s;
+}
+
+.product-card:hover .product-image img,
+.product-card:hover .product-img {
+    transform: scale(1.1);
+}
+
+.product-card .card-body {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.price {
+    color: var(--primary-color-alt);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.product-description {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--dark-color);
+    border-color: var(--dark-color);
+    transform: scale(1.05);
+}
+
+/* Categorías y filtros */
+.categories-nav {
+    position: sticky;
+    top: 76px;
+    z-index: 100;
+}
+
+.category-btn {
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    margin: 0.2rem;
+    transition: all 0.3s;
+}
+
+.category-btn.active, .category-btn:hover {
+    background-color: var(--primary-color-alt);
+    color: white;
+    border-color: var(--primary-color-alt);
+}
+
+.filter-section {
+    background-color: white;
+    position: sticky;
+    top: 130px;
+    z-index: 90;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.form-select {
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+}
+
+/* Sección sobre nosotros */
+.about-preview-section {
+    background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+}
+
+.about-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 0;
+}
+
+.value-icon {
+    font-size: 2rem;
+}
+
+/* Página de contacto */
+.contact-header {
+    background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+    padding: 4rem 0;
+    text-align: center;
+    color: white;
+}
+
+.contact-content {
+    padding: 4rem 0;
+}
+
+.info-item {
+    margin-bottom: 2rem;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-color);
+    border-radius: 50%;
+}
+
+.info-content h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.map-section {
+    padding: 4rem 0;
+}
+
+.map-frame {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Formulario de contacto */
+#contact-form .form-control,
+.message-input {
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #eee;
+    transition: all 0.3s;
+}
+
+#contact-form .form-control:focus,
+.message-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(233, 30, 99, 0.25);
+}
+
+.btn-primary {
+    background-color: var(--primary-color-alt);
+    border-color: var(--primary-color-alt);
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #b02a6e;
+    border-color: #b02a6e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color-alt);
+    border-color: var(--primary-color-alt);
+    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color-alt);
+    color: white;
+}
+
+/* Página de detalle de producto */
+.breadcrumb-section {
+    background-color: var(--light-color);
+}
+
+.breadcrumb-item.active {
+    color: var(--primary-color-alt);
+}
+
+.product-detail {
+    padding: 2rem 0;
+}
+
+.product-image img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-image img:hover {
+    transform: scale(1.02);
+}
+
+.product-title {
+    font-family: 'Pacifico', cursive;
+    color: var(--dark-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.customization-options {
+    background-color: var(--gray-light);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.size-btn {
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.size-btn.active, .size-btn:hover {
+    background-color: var(--primary-color-alt);
+    border-color: var(--primary-color-alt);
+    color: white;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#add-to-cart-detail {
+    background-color: var(--primary-color-alt);
+    border-color: var(--primary-color-alt);
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+#add-to-cart-detail:hover {
+    background-color: var(--dark-color);
+    border-color: var(--dark-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    background-color: var(--gray-light);
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+/* --- BLOG ESTILOS BONITOS --- */
+body.blog-page {
+    background: #f8f9fa;
+}
+
+.tituloBlog h1 {
+    font-family: 'Pacifico', cursive;
+    color: #d63384;
+    font-size: 2.7rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.tituloBlog h2, .titulo h2 {
+    font-family: 'Lato', sans-serif;
+    color: #6f42c1;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.card.pastel {
+    border-radius: 1.1rem;
+    box-shadow: 0 4px 18px rgba(214,51,132,0.08), 0 1.5px 6px rgba(111,66,193,0.07);
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: #fff;
+}
+
+.card.pastel:hover {
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(214,51,132,0.13), 0 3px 12px rgba(111,66,193,0.10);
+}
+
+.card.pastel .card-img-top {
+    border-radius: 1.1rem 1.1rem 0 0;
+    height: 180px;
+    object-fit: cover;
+    background: #f3e6f9;
+}
+
+.card.pastel .card-title {
+    color: #d63384;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.3rem;
+}
+
+.card.pastel .card-text {
+    color: #444;
+    font-size: 1rem;
+}
+
+.card.pastel .btn-primary {
+    background: #d63384;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.4rem 1.2rem;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.card.pastel .btn-primary:hover {
+    background: #b02a6e;
+}
+
+.cupcakes .card.pastel {
+    margin-bottom: 2rem;
+}
+
+.tituloBlog, .titulo {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- RECETAS ESTILOS --- */
+.recetas-page {
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.recetas-titulo {
+    font-family: 'Pacifico', cursive;
+    color: #d63384;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.receta-subtitulo {
+    text-align: center;
+}
+
+.receta-card {
+    background: #ffe4ef;
+    border-radius: 1.2rem;
+    box-shadow: 0 4px 18px rgba(214,51,132,0.08), 0 1.5px 6px rgba(111,66,193,0.07);
+    padding: 2rem 2rem 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    display: block;
+    text-align: left;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.receta-card:hover {
+    box-shadow: 0 8px 32px rgba(214,51,132,0.13), 0 3px 12px rgba(111,66,193,0.10);
+    transform: translateY(-5px) scale(1.01);
+}
+
+.receta-card h2 {
+    color: #d63384;
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.receta-card h3 {
+    color: #6f42c1;
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.receta-card ul, .receta-card ol {
+    background: #fff;
+    border-radius: 0.7rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(214,51,132,0.04);
+    text-align: left;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.receta-card p {
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+
+.receta-imagen {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 1.1rem;
+    box-shadow: 0 4px 18px rgba(214,51,132,0.08), 0 1.5px 6px rgba(111,66,193,0.07);
+    max-width: 500px;
+    max-height: 340px;
+    width: 100%;
+    object-fit: cover;
+    background: #f3e6f9;
+}
+
+.ingredientes {
+    margin-bottom: 1.2rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 3rem 0;
+}
+
+.footer h4 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.footer p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin-right: 1rem;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: white;
+}
+
+.copyright {
+    color: #999;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .category-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .product-title {
+        font-size: 2rem;
+    }
+    
+    .recetas-titulo {
+        font-size: 1.5rem;
+    }
+    
+    .receta-card h2 {
+        font-size: 1.2rem;
+    }
+    
+    .receta-imagen {
+        max-width: 100%;
+        max-height: 200px;
+    }
+    
+    .card.pastel .card-img-top {
+        height: 130px;
+    }
+    
+    .tituloBlog h1 {
+        font-size: 2rem;
+    }
+    
+    .tituloBlog h2, .titulo h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
